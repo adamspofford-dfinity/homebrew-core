@@ -33,6 +33,8 @@ class IcpCli < Formula
     ENV.append_to_rustflags "--sysroot #{HOMEBREW_PREFIX}"
 
     system "cargo", "install", *std_cargo_args(path: "crates/icp-cli")
+
+    generate_completions_from_executable(bin/"icp", "completions")
   end
 
   test do
